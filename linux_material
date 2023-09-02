@@ -1,0 +1,350 @@
+Linux 
+------
+Same like windows and Mac OS, Linux is an Operating System.
+Linux is free open source, highly secure, multi tasking and multi user operating system.
+Linux Kernel Code is freely download and modify as per your requirement to create your own operating system.
+
+Linux Kernel - Creator/Father - Linus Benedict Torvalds.
+
+Linux Architecture 
+-----------------------
+Linux is divided into 4 layers of functionality
+Hardware, Kernel, Shell, Applications.
+
+Hardware = Manages CPU, RAM, HARD DISK,. . . .
+Kernel = Operates at lower level, Converts low level language into high level language (converts data into binaries). 
+Shell = command line interface/user interface, executes user commands, translating them into instructions that the kernel can execute.
+Applications = Softwares, file system, processes, to execute other applications, network configurations, . . .
+
+Daemons = background process, Daemons are responsible for the background process in any operating system, without manual intervention services are up & running by this daemons.
+
+Linux Distributions
+----------------------
+More than 500+ Linux Distributions are available in the market like Redhat, centos, ubuntu, suse, debian, . . . . .
+
+
+Environment Settings in Linux
+------------------------------
+bash profile (~/.bash_profile) file is used to store environment settings.
+
+Different ways to connect linux Operating system
+----------------------------------------------------
+Terminal, gitbash, Putty, mobaxterm, . . . . . .
+
+Linux Basic Commands
+-----------------------
+ls, pwd, cd, cp, mv, touch, cat, mkdir, rmdir, rm, ln, head, tail, more, less, date, wget,
+cal, w, wc, vi, view, man, ps -e, ps aux, top, kill, df -h, du -sh *, free, clear, su - username, exit, . . . . . 
+
+Linux File system
+---------------------
+
+/ ------------> Root Directory
+/bin  --------> user binaries
+/sbin --------> system binaries 
+/boot  -------> boot loader files
+/etc   -------> configuration files
+/proc  --------> process information
+/var   --------> varible information
+/tmp   -------> temporary files
+/opt   -------> optional Add on application 
+/mnt    ------> mount directory
+/home   -------> home directories
+
+File Permissions - chmod
+-------------------
+
+default permission for file and directories
+
+drwxr-xr-x  ---------> 755  
+-rw-r--r--  ---------> 644
+
+File Permission Example:
+---------------------------
+-rw-r--r--. 1 root root 0 Jun 17 03:16 file 
+
+-   -------------> file type
+rw-  ------------>  owner(rw-)  
+r--  ----------->   Group
+r--   ---------->   other 
+1      --------->  number of hardlink 
+root   -------->  user or owner
+root   -------->   group name 
+0      --------> size
+Jun 17 03:16    --------> date/time last modification
+file     ---------> file name 
+
+File Permission Command
+----------------------------
+chmod :- 
+=====
+To change the file permission purpose we are using chmod command 
+
+r = 4
+w = 2
+x = 1 
+
+if your not applying any permission in file put on 
+-r-xrw-rw-   ----------> chmod 476
+
+CURD  
+------
+C  ---------> create
+U  ---------> update
+R  ---------> read 
+D  ---------> Dead
+
+if you want change multiple direcories 
+cd selinux/targeted/logins/
+
+chage path multiple directories
+cd ../../..
+
+vi Editor 
+------------
+In vi editor we have mode's:-
+ESC
+Insert mode 
+command mode
+same vi editior convert a to b letters
+esc + shift & : 
+
+:%s/a/b/g
+
+s ---- search
+a ---> current letter
+b  ---> replace letter
+g  ---> global
+
+sed command
+----------------
+to replace the keyword by using sed command
+sed -i 's/b/a/g' demo
+
+:se nu  ------------> how many line 
+q ------------------> quit file
+q!  ----------------> force quit
+wq! -----------------> save the data & quit 
+Insert mode ------------> once login into vi mode if you want edit the data use "I"
+delete the line ---------> using 'dd' in VI
+yy -------> take the copy same line
+p  ------> paste the line 
+
+esc + shift & :  -----------> use command line 
+
+
+File Processing Commands
+----------------------------
+grep = To find the words in a file.
+find = Is used to search the files.
+locate = alternative to find command.
+sed = Stream Editor , To replace the words in a file.
+awk = To Search/Display one or more files to see particular patterns.
+sort = Sorting files line by line / systematically / alphabetically / reverse order 
+uniq = To remove or detect duplicate entries in a file
+cut = To extract portion of text from a file by selecting columns.
+join = Is used to combine two files.
+paste = Is used to merge the lines from multiple files.
+
+Archives
+------------
+zip, unzip, gzip, gunzip, tar -cvzf, tar -xvf
+
+Users/Groups in Linux
+----------------------
+Users - 
+-------
+Root User = Highest privilege complete permissions, admin/superuser/root/root user
+Normal User = human users, like you and me
+System User = default system users and other system users like jenkins user, apache user, installed applications like jenkins, apache, . . . . 
+
+Commands : useradd, passwd, userdel, usermod, chage
+Paths:
+cat /etc/passwd
+cat /etc/shadow
+
+Groups - 
+-----------
+Commands : groupadd, gpasswd, groupdel, groupmod
+Paths:
+cat /etc/group
+cat /etc/gshadow
+
+Networking Commands
+-------------------------
+ssh = Secure SHell protocol, to allow users to login into remote computer.
+nslookup = To check the mapping between DNS(Domain Name) and Name servers(IP Address)
+dnslookup - dig = To check DNS name servers.
+telnet = To check Port is open or not.
+ifconfig = Is used to set or display the IP address and netmask of a network interface.
+netstat = Is used to display linux networking subsystem.
+traceroute = To track packets flow. 
+tracepath = same like traceroute, but not required root privileges.
+ping = To check the connectivity.
+cURL = Client URL - It is used to transfer data using various network protocols like HTTP, FTP, . . .
+wget = To Download files from the Internet. wget(world wide web get).
+Hostname = Displays the hostname of the system.
+
+Linux Jobs
+---------------
+at:- To schedule a job for a particular time or interval. for recurring tasks we cannot use at command.
+----
+crontab: for recurring tasks cronjob.
+----------
+cat /etc/crontab
+crontab -l, -e, -r
+
+cronjob:- To schedule the events 
+------------------------------
+* * * * *
+minute   ----------------> (0-59)
+hour     ----------------> (0-23)
+day of month ------------> (0-31)
+month -------------------> (1-12)
+day of weeks ------------> (0-7) (Sunday=0 or 7)
+0/59   ---------------> */5
+https://crontab.guru/
+0 0 * * monday  ------------------> every monday
+*/5 * * * *    -------------> every 5min
+0 */2 * * *    ------------>  every 2 hours
+
+
+Linux Services
+------------------
+Service : To start and Stop Services.
+--------------
+systemctl status httpd
+systemctl restart, reload, start, stop httpd
+
+chkconfig : It controls which services are set to start on boot.
+--------------
+chkconfig --list
+chkconfig service-name on
+chkconfig service-name off
+
+Linux Processes
+-----------------
+fg - Foreground processes - need input from the user
+bg - background processes - run in the background user input is not required.
+To display processes - ps
+--------------------
+ps = To display processes, ps, ps -f, ps -ef, ps aux, ps ax, 
+top = To display running processes.
+kill = To Terminate running process, pid.
+
+Linux Package Management
+-----------------------------------------------
+yum  ------------> yellow dog update manager  --------> Redhat,amazonlinux 
+apt-get  ----------> ubuntu 
+
+
+SSH connection :-
+===============
+before ssh-keygen:-
+==================
+[root@node1 ~]# ls -ltra
+total 24
+-rw-r--r--  1 root root 129 Oct 18  2017 .tcshrc
+-rw-r--r--  1 root root 100 Oct 18  2017 .cshrc
+-rw-r--r--  1 root root 176 Oct 18  2017 .bashrc
+-rw-r--r--  1 root root 176 Oct 18  2017 .bash_profile
+-rw-r--r--  1 root root  18 Oct 18  2017 .bash_logout
+dr-xr-xr-x 18 root root 257 Jul  5 02:17 ..
+drwx------  2 root root  29 Jul  5 02:17 .ssh
+-rw-------  1 root root  34 Jul  5 02:23 .bash_history
+dr-xr-x---  3 root root 124 Jul  5 02:23 .
+[root@node1 ~]# cd .ssh/
+[root@node1 .ssh]# ls
+authorized_keys
+
+creating sshkeys in linux:-
+==========================
+[root@node1 ~]# ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa.
+Your public key has been saved in /root/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:HNq/+gj0rd8wa62W3HYjSfPlohGueRPJXYDVpE6sZbI root@node1
+The key's randomart image is:
++---[RSA 2048]----+
+|             o.o.|
+|            .....|
+|        .   . *. |
+|       + .   O  .|
+|      o S  .Eo.. |
+|     . . o .*.. .|
+|      . ..==o= o |
+|       . o=OO.= .|
+|        +*O+o= o |
++----[SHA256]-----+
+
+
+after ssh-keygen:-
+================ 
+[root@node1 ~]# ls -ltra
+total 24
+-rw-r--r--  1 root root 129 Oct 18  2017 .tcshrc
+-rw-r--r--  1 root root 100 Oct 18  2017 .cshrc
+-rw-r--r--  1 root root 176 Oct 18  2017 .bashrc
+-rw-r--r--  1 root root 176 Oct 18  2017 .bash_profile
+-rw-r--r--  1 root root  18 Oct 18  2017 .bash_logout
+dr-xr-xr-x 18 root root 257 Jul  5 02:17 ..
+-rw-------  1 root root  34 Jul  5 02:23 .bash_history
+dr-xr-x---  3 root root 124 Jul  5 02:23 .
+drwx------  2 root root  61 Jul  5 02:30 .ssh
+[root@node1 ~]# cd .ssh/
+[root@node1 .ssh]#
+[root@node1 .ssh]# ls
+authorized_keys  id_rsa  id_rsa.pub
+[root@node1 .ssh]# ls
+authorized_keys  id_rsa  id_rsa.pub
+[root@node1 .ssh]# cd
+[root@node1 ~]# ls
+[root@node1 ~]# cd .ssh/
+[root@node1 .ssh]# ls -tra
+authorized_keys  ..  id_rsa.pub  id_rsa  .
+[root@node1 .ssh]# cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5eE0qsiqnJRiPBJgrV8RNM4jU+jc7ihBlRaKLEC6TlnOb/pJdbI5noiG4a8k29h3BQ+W46Xkd0lNRTrFn1crWa8IXhvU6bcsuhTn6oT33YLtzoWEKitVMohXpFAF9PeH4oqamBPgW7LepwoUUS0l4DZUzfuTlMgpHgl+mZg115x4jmem2nk8vWyoD26WgaE0UjOlWb+9LdHQDSZluGD8v5zn8eJ1AQgQrqPcrboaVGNnd1o0mZZ7Z0VIz2uyqNQwOZ9cbccGsUkHXXdA3Xc57pwyjT+Ert7DjGw7HEWeSlySDbORk88ULlCROpeRZ8IYhky2+Y8SE6ezLao+5wcmD
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1XqU6Bgum/sdxgrhRUcCqPQ11aD7cxpG8FWdA9YIyqatKAK6fJF3I+VQAhuDA/hDF8safPybyZTgMey4F7HQvn/+jjXqkKI7qDLsDtzpMKGovseT/NScsG04KAyW1P6lRv3pXyAKOAGY8nM569hHIG56jDcwgkamPKHsGgjVqInP8M3WDSvruRfO4wZU7pwTtgCzGkkDUyMJc4Z7fLdMTsNM3IUPGl0W/NDNxbQCndM8AaViEwUA3ltZYBQwMDsTE21uA2GFVPgQBmJIzlpW10LL36ynNUlPQd9oaEat9y80clfU+/x+sWyrsFxK/2wrXFW3owp6WQzKV1Fy10KP3
+
+ssh -i pemfile ec2-user@publicip 
+pwd:-
+/home/ec2-user
+
+one server to another server how to copy the data which command you will use in linux?
+(A)SCP command
+scp -i sshkeys.pem sshkeys.pem ec2-user@184.73.145.27:/home/ec2-user
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
